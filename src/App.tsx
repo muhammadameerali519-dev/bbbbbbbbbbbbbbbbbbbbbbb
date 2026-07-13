@@ -8,7 +8,6 @@ import Deals from './components/Deals';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
-import VeeBiteAssistant from './components/VeeBiteAssistant';
 import { CartProvider } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
 import { motion } from 'motion/react';
@@ -51,7 +50,6 @@ export default function App() {
 
           {/* Floating UI Elements */}
           <WhatsAppButton />
-          <VeeBiteAssistant />
           <CartDrawer />
         </motion.div>
       )}

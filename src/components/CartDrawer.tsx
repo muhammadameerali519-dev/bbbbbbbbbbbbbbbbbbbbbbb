@@ -89,7 +89,6 @@ export default function CartDrawer() {
                 </div>
                 <div>
                   <h3 className="font-display text-xl text-white tracking-wider uppercase">Your Basket</h3>
-                  <p className="font-sans text-[10px] text-cream/40 uppercase tracking-widest mt-0.5">Vee Bite Gourmet</p>
                 </div>
               </div>
 

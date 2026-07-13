@@ -12,7 +12,7 @@ export default function OurStory() {
   return (
     <section
       id="our-story"
-      className="relative w-full py-24 bg-[#0A0A0A] border-t border-b border-gold/10 overflow-hidden px-6"
+      className="relative w-full py-24 bg-[#0F0E0D] border-t border-b border-gold/10 overflow-hidden px-6"
     >
       {/* Subtle brand watermark background */}
       <div className="absolute right-0 bottom-0 opacity-[0.02] translate-x-1/4 translate-y-1/4 pointer-events-none">

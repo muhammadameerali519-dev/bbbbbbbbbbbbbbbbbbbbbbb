@@ -11,7 +11,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative w-full py-24 bg-[#0A0A0A] px-6 overflow-hidden">
+    <section id="contact" className="relative w-full py-24 bg-[#111215] px-6 overflow-hidden">
       {/* Decorative Light Ring */}
       <div className="absolute left-1/4 bottom-1/4 w-[400px] h-[400px] bg-gold/5 blur-[120px] pointer-events-none"></div>
 
