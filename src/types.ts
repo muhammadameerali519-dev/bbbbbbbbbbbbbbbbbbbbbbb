@@ -1,4 +1,6 @@
 import streetChickenBurger from './assets/images/street_chicken_burger_1783052462658.jpg';
+import cleanChickenBurger from './assets/images/clean_chicken_burger_1783910911535.jpg';
+import chickenChapliBurger from './assets/images/chicken_chapli_burger_1783908686509.jpg';
 import tortillaWrap from './assets/images/tortilla_wrap_grilled_1783197346232.jpg';
 import parathaRoll from './assets/images/paratha_roll_1783197039900.jpg';
 import chickenShawarma from './assets/images/chicken_shawarma_1783197056152.jpg';
@@ -167,11 +169,11 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'burger-chapli',
-    name: 'Chicken Chapli Burger',
-    description: 'Spiced traditional chapli kebab style chicken patty infused with coriander, fresh mint, green chilies, and tangy sauce.',
+    name: 'Crispy Cheese Patty Burger',
+    description: 'Crispy-fried outer chicken patty stuffed with melting stretchy cheese cores, fresh green leaf lettuce, and premium burger sauce.',
     category: 'burgers',
     price: 350,
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80',
+    image: 'https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2025-02-how-to-make-a-smash-burger%2Fhow-to-make-a-smash-burger-432',
     badge: 'Pakistani Classic',
   },
   {
@@ -202,11 +204,11 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'burger-crispy-cheese-patty',
-    name: 'Crispy Cheese Patty Burger',
-    description: 'Crispy-fried outer chicken patty stuffed with melting stretchy cheese cores, fresh green leaf lettuce, and premium burger sauce.',
+    name: 'Chicken Chapli Burger',
+    description: 'Authentically spiced, pan-fried chicken chapli patty infused with coriander, mint, green chilies, and fresh tomatoes, served in a soft bun.',
     category: 'burgers',
     price: 320,
-    image: 'https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2025-02-how-to-make-a-smash-burger%2Fhow-to-make-a-smash-burger-432',
+    image: 'https://static01.nyt.com/images/2018/07/29/magazine/29mag-eat-image1/29mag-eat-image1-videoSixteenByNineJumbo1600.jpg',
   },
   {
     id: 'burger-crispy-tender',
@@ -222,7 +224,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Stack of four crispy fried chicken tenders, double cheese layer, smokey BBQ drizzle, and sweet relish mayo.',
     category: 'burgers',
     price: 650,
-    image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtZhVukdzcBAq-nHWwxnl6JGhnIapGc8YFepM9F09YkQ&s=10',
   },
 
   {
@@ -230,8 +232,8 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Chicken Burger',
     description: 'Soft home-style grilled chicken breast patty, crisp shredded lettuce, ripe sliced tomato, and creamy burger mayo.',
     category: 'burgers',
-    price: 300,
-    image: streetChickenBurger,
+    price: 320,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgnxD9m-KgBmagJOg5GCJKtWVhhYSu8KfAxhjYYnOYJQyWSib-txLIaI8p&s=10',
   },
   {
     id: 'burger-double-anda',
@@ -259,7 +261,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Ten premium tender-fried chicken breast nuggets, coated in golden-puffed crumbs. Served with sweet chili dip.',
     category: 'chicken',
     price: 490,
-    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWdRUU55RGHM3gnovjAXzWIQv1EipLqrhJWPTq-_C61A&s',
   },
   {
     id: 'chicken-strips',
@@ -304,7 +306,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Shaved slow-cooked chicken, pickled cucumber planks, Lebanese tahini garlic toum, rolled inside warm arabic pita.',
     category: 'wraps',
     price: 300,
-    image: chickenShawarma,
+    image: 'https://whatsgabycooking.com/wp-content/uploads/Chicken-Shawarma-Stuffed-Pita-Pockets.jpg',
   },
   {
     id: 'wrap-zinger-shawarma',
@@ -312,7 +314,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crispy crunchy zinger strips chopped, folded into standard pita bread with mild white sauce and mixed pickle slices.',
     category: 'wraps',
     price: 320,
-    image: zingerShawarma,
+    image: 'https://images.deliveryhero.io/image/talabat/MenuItems/A0E11BBBD3CF2D1D4BC00C0BC9BE5C4D',
   },
   {
     id: 'wrap-open-shawarma',
@@ -320,7 +322,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Deconstructed Arabic platter: massive portion of shawarma chicken, sliced pitas, salad, pickled chilis, garlic toum, and chili paste.',
     category: 'wraps',
     price: 500,
-    image: openShawarma,
+    image: 'https://i.ytimg.com/vi/xz3DCx3yxAc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAMM-yiA0Afn1JZwXaOISUL1Ee9fg',
   },
 
   // --- Fries ---
@@ -378,19 +380,19 @@ export const MENU_ITEMS: MenuItem[] = [
   // --- Cheese Sticks ---
   {
     id: 'cheese-sticks-s',
-    name: 'Mozzarella Cheese Sticks (Small)',
+    name: 'Cheese Sticks (Small)',
     description: 'Tender baked cheesy sticks coated in garlic butter and parsley crust, with a gooey melting center.',
     category: 'cheese-sticks',
     price: 700,
-    image: mozzarellaCheeseSticks,
+    image: 'https://allshecooks.com/wp-content/uploads/2013/10/mozzarella-sticks.jpg',
   },
   {
     id: 'cheese-sticks-m',
-    name: 'Mozzarella Cheese Sticks (Medium)',
+    name: 'Cheese Sticks (Medium)',
     description: 'Medium batch of premium cheese pull sticks, baked to perfect golden crust.',
     category: 'cheese-sticks',
     price: 1000,
-    image: mozzarellaCheeseSticks,
+    image: 'https://allshecooks.com/wp-content/uploads/2013/10/mozzarella-sticks.jpg',
     badge: 'Elite Pull',
   },
 
@@ -436,7 +438,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Coca Cola',
     description: 'Chilled, bubbly, and classic refreshing Coca-Cola soft drink.',
     category: 'cold-drinks',
-    price: { '1 Litre': 160, '1.5 Litre': 200 },
+    price: { '350ml': 90, '500ml': 130, '1 Litre': 180, '1.5 Litre': 220 },
     image: 'https://lahorebasket.com/cdn/shop/files/coca-cola-bottle-1-ltr-975111.jpg?v=1737617212',
     badge: 'Chilled',
   },
@@ -445,7 +447,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Sprite',
     description: 'Crisp, clear, and instantly refreshing lemon-lime sparkling drink.',
     category: 'cold-drinks',
-    price: { '1 Litre': 160, '1.5 Litre': 200 },
+    price: { '350ml': 90, '500ml': 130, '1 Litre': 180, '1.5 Litre': 220 },
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsnEwYWt7x_agrJxGT_-PU9A3lvQICp2cxvDhOA709rDFEIF3W4bG5HZq2&s=10',
     badge: 'Chilled',
   },
@@ -454,7 +456,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Fanta',
     description: 'Bright, bubbly, and fruity orange flavored carbonated soda.',
     category: 'cold-drinks',
-    price: { '1 Litre': 160, '1.5 Litre': 200 },
+    price: { '350ml': 90, '500ml': 130, '1 Litre': 180, '1.5 Litre': 220 },
     image: 'https://cdn.mafrservices.com/sys-master-root/hbd/ha5/9332616298526/519798_main.jpg',
     badge: 'Chilled',
   }
@@ -474,7 +476,7 @@ export const DEALS: Deal[] = [
     id: 'deal-2',
     name: 'Deal 2',
     description: '1 Large Pizza (14") + 2 Crispy Zinger Burgers + 1 Liter Soft Drink.',
-    price: 2000,
+    price: 2200,
     tag: 'Family',
     badge: 'Best Family Choice',
     image: 'https://pizzabank.pk/admin-panel/laravel_code/storage/app/public/menuitems/5RfBTEVqhImQQTNDATevaSqzLBKqI93dJ5BQu231.png',

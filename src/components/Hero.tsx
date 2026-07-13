@@ -30,13 +30,13 @@ export default function Hero() {
   };
 
   const handleOrderSpecialCombo = () => {
-    // Adds Deal 2 (Pizza + Burger Combo - Rs. 2000) directly to cart
+    // Adds Deal 2 (Pizza + Burger Combo - Rs. 2200) directly to cart
     const deal = { 
       id: 'deal-2', 
       name: 'Deal 2', 
       image: 'https://pizzabank.pk/admin-panel/laravel_code/storage/app/public/menuitems/5RfBTEVqhImQQTNDATevaSqzLBKqI93dJ5BQu231.png' 
     };
-    addToCart(deal, 'deal', 2000);
+    addToCart(deal, 'deal', 2200);
   };
 
   return (
@@ -269,7 +269,7 @@ export default function Hero() {
 
               <div className="mt-6 flex items-baseline gap-1 relative z-10">
                 <span className="text-sm font-bold uppercase tracking-widest text-black/60">Combo Price:</span>
-                <span className="text-3xl font-black font-mono tracking-tighter text-black ml-1">Rs. 2000</span>
+                <span className="text-3xl font-black font-mono tracking-tighter text-black ml-1">Rs. 2200</span>
               </div>
 
               {/* Action indicators */}

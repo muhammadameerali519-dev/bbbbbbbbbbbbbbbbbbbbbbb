@@ -149,14 +149,16 @@ export default function Menu() {
                       >
                         {/* Card Image Wrapper */}
                         {item.image ? (
-                          <div className="relative h-56 w-full overflow-hidden bg-black/40">
+                          <div className={`relative h-56 w-full overflow-hidden ${['burger-double-tender', 'burger-chicken'].includes(item.id) ? 'bg-white p-4' : 'bg-black/40'}`}>
                             <img
                               src={item.image}
                               alt={item.name}
                               referrerPolicy="no-referrer"
-                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] filter brightness-95"
+                              className={`h-full w-full transition-transform duration-700 group-hover:scale-[1.03] ${['burger-double-tender', 'burger-chicken'].includes(item.id) ? 'object-contain' : 'object-cover filter brightness-95'}`}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#171512] via-transparent to-transparent"></div>
+                            {!['burger-double-tender', 'burger-chicken'].includes(item.id) && (
+                              <div className="absolute inset-0 bg-gradient-to-t from-[#171512] via-transparent to-transparent"></div>
+                            )}
 
                             {/* Badge */}
                             {item.badge && (
@@ -189,9 +191,6 @@ export default function Menu() {
                             <h3 className="font-display text-2xl tracking-wider text-white group-hover:text-gold transition-colors duration-300">
                               {item.name}
                             </h3>
-                            <p className="font-sans text-xs text-white/90 leading-relaxed tracking-wide mt-2 min-h-[44px]">
-                              {item.description}
-                            </p>
 
                             {/* Multi-size selectors */}
                             {isMultiPrice && (
