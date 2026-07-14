@@ -1,5 +1,6 @@
 import streetChickenBurger from './assets/images/street_chicken_burger_1783052462658.jpg';
 import cleanChickenBurger from './assets/images/clean_chicken_burger_1783910911535.jpg';
+import doubleTenderBurger from './assets/images/double_tender_burger_1784008786459.jpg';
 import chickenChapliBurger from './assets/images/chicken_chapli_burger_1783908686509.jpg';
 import tortillaWrap from './assets/images/tortilla_wrap_grilled_1783197346232.jpg';
 import parathaRoll from './assets/images/paratha_roll_1783197039900.jpg';
@@ -13,10 +14,10 @@ import pizzaFries from './assets/images/pizza_fries_1783198671845.jpg';
 import gourmetPizza from './assets/images/gourmet_pizza_1783192643518.jpg';
 import chapliDeal from './assets/images/chapli_deal_1783840550687.jpg';
 import specialDealOne from './assets/images/special_deal_one_1783840794076.jpg';
-import specialDealTwo from './assets/images/special_deal_two_1783840887906.jpg';
-import specialDealThree from './assets/images/special_deal_three_1783841045359.jpg';
+import specialDealTwo from './assets/images/special_deal_two_combo_1784010743208.jpg';
+import specialDealThree from './assets/images/special_deal_three_combo_1784010489095.jpg';
 import specialDealFour from './assets/images/special_deal_four_1783841147853.jpg';
-import specialDealSix from './assets/images/special_deal_six_1783841391984.jpg';
+import specialDealSix from './assets/images/special_deal_six_shami_1784010061425.jpg';
 import specialDealSeven from './assets/images/special_deal_seven_1783841496800.jpg';
 
 export interface MenuItem {
@@ -173,7 +174,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crispy-fried outer chicken patty stuffed with melting stretchy cheese cores, fresh green leaf lettuce, and premium burger sauce.',
     category: 'burgers',
     price: 350,
-    image: 'https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2025-02-how-to-make-a-smash-burger%2Fhow-to-make-a-smash-burger-432',
+    image: 'https://thumbs.dreamstime.com/b/closeup-showcases-mouthwatering-cheeseburger-stacked-high-fresh-ingredients-featuring-juicy-beef-patty-melted-cheese-crisp-379412307.jpg',
     badge: 'Pakistani Classic',
   },
   {
@@ -208,7 +209,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Authentically spiced, pan-fried chicken chapli patty infused with coriander, mint, green chilies, and fresh tomatoes, served in a soft bun.',
     category: 'burgers',
     price: 320,
-    image: 'https://static01.nyt.com/images/2018/07/29/magazine/29mag-eat-image1/29mag-eat-image1-videoSixteenByNineJumbo1600.jpg',
+    image: 'https://www.chefadora.com/_next/image?url=https%3A%2F%2Fchefadora-production.s3.ap-southeast-2.amazonaws.com%2Fmedium_Chapli_kebab_burger_1892ac5f68f_base_9ab5865a71.jpg&w=640&q=75',
   },
   {
     id: 'burger-crispy-tender',
@@ -216,15 +217,15 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Glazed crispy-battered chicken tender tenders, honey mustard splash, fresh onions, on soft warm brioche bun.',
     category: 'burgers',
     price: 450,
-    image: 'https://burgerking.com.cy/sites/default/files/tendercrisp.png',
+    image: 'https://images.ctfassets.net/crbk84xktnsl/6FgZSnoqkmb0ZVLcaMdm1/e6ef145fdb0acead4afa8ebe467e0122/Double_Tender_Burger.png',
   },
   {
     id: 'burger-double-tender',
     name: 'Double Tender Burger',
-    description: 'Stack of four crispy fried chicken tenders, double cheese layer, smokey BBQ drizzle, and sweet relish mayo.',
+    description: 'Double stacked extra-crispy fried chicken tenders, fresh leaf lettuce, ripe tomato slice, and dripping creamy garlic mayonnaise in a toasted sesame bun.',
     category: 'burgers',
     price: 650,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtZhVukdzcBAq-nHWwxnl6JGhnIapGc8YFepM9F09YkQ&s=10',
+    image: 'https://png.pngtree.com/png-clipart/20241101/original/pngtree-crispy-cheesy-chicken-patty-burger-on-transparent-background-png-image_16578920.png',
   },
 
   {
@@ -384,7 +385,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender baked cheesy sticks coated in garlic butter and parsley crust, with a gooey melting center.',
     category: 'cheese-sticks',
     price: 700,
-    image: 'https://allshecooks.com/wp-content/uploads/2013/10/mozzarella-sticks.jpg',
+    image: 'https://amandascookin.com/wp-content/uploads/2023/06/Wonton-Cheese-Sticks-RCSQ.jpg',
   },
   {
     id: 'cheese-sticks-m',
@@ -392,7 +393,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Medium batch of premium cheese pull sticks, baked to perfect golden crust.',
     category: 'cheese-sticks',
     price: 1000,
-    image: 'https://allshecooks.com/wp-content/uploads/2013/10/mozzarella-sticks.jpg',
+    image: 'https://amandascookin.com/wp-content/uploads/2023/06/Wonton-Cheese-Sticks-RCSQ.jpg',
     badge: 'Elite Pull',
   },
 
@@ -466,7 +467,7 @@ export const DEALS: Deal[] = [
   {
     id: 'deal-1',
     name: 'Deal 1',
-    description: '2 Small Pizzas (8") + 1 Liter Soft Drink.',
+    description: '2 Small Pizzas + 1 Liter Soft Drink.',
     price: 1100,
     tag: 'Combo',
     badge: 'Budget Value',
@@ -475,7 +476,7 @@ export const DEALS: Deal[] = [
   {
     id: 'deal-2',
     name: 'Deal 2',
-    description: '1 Large Pizza (14") + 2 Crispy Zinger Burgers + 1 Liter Soft Drink.',
+    description: '1 Large Pizza + 2 Crispy Zinger Burgers + 1 Liter Soft Drink.',
     price: 2200,
     tag: 'Family',
     badge: 'Best Family Choice',
@@ -484,7 +485,7 @@ export const DEALS: Deal[] = [
   {
     id: 'deal-3',
     name: 'Deal 3',
-    description: '2 Medium Pizzas (10") + 1 Liter Soft Drink.',
+    description: '2 Medium Pizzas + 1 Liter Soft Drink.',
     price: 1700,
     tag: 'Combo',
     badge: 'Popular Deal',
@@ -493,7 +494,7 @@ export const DEALS: Deal[] = [
   {
     id: 'deal-4',
     name: 'Deal 4',
-    description: '2 Large Pizzas (14") + 1.5 Liter Soft Drink.',
+    description: '2 Large Pizzas + 1.5 Liter Soft Drink.',
     price: 2700,
     tag: 'Family',
     badge: 'Mega Saver',
@@ -515,7 +516,7 @@ export const DEALS: Deal[] = [
     price: 650,
     tag: 'Combo',
     badge: 'Zinger Mania',
-    image: 'https://thumbs.dreamstime.com/b/double-chicken-burger-ketchup-cheese-mayonnaise-isolated-white-background-double-chicken-burger-ketchup-cheese-317889695.jpg',
+    image: 'https://i.ytimg.com/vi/ddkCI1hAONk/hqdefault.jpg',
   },
   {
     id: 'deal-chapli',
