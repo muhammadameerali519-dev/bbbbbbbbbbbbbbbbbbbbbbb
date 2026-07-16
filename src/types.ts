@@ -385,7 +385,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender baked cheesy sticks coated in garlic butter and parsley crust, with a gooey melting center.',
     category: 'cheese-sticks',
     price: 700,
-    image: 'https://amandascookin.com/wp-content/uploads/2023/06/Wonton-Cheese-Sticks-RCSQ.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfVHPyYbOi3_6ZHmBMyyk87uRz1DPY-51lyKlvV4Vi-w&s=10',
   },
   {
     id: 'cheese-sticks-m',
@@ -393,7 +393,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Medium batch of premium cheese pull sticks, baked to perfect golden crust.',
     category: 'cheese-sticks',
     price: 1000,
-    image: 'https://amandascookin.com/wp-content/uploads/2023/06/Wonton-Cheese-Sticks-RCSQ.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfVHPyYbOi3_6ZHmBMyyk87uRz1DPY-51lyKlvV4Vi-w&s=10',
     badge: 'Elite Pull',
   },
 
