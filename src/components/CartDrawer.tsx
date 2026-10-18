@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { X, Trash2, Plus, Minus, ShoppingBag, MessageSquare, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import Squircle from './ui/Squircle';
 
 export default function CartDrawer() {
   const {
@@ -41,11 +42,11 @@ export default function CartDrawer() {
     message += `*Subtotal:* Rs. ${cartTotal}\n`;
     message += `*Delivery Distance:* ${distanceNum} km\n`;
     message += `*Delivery Charges:* Rs. ${deliveryCharge}\n`;
-    
+
     if (deliveryAddress.trim()) {
       message += `*Delivery Address:* ${deliveryAddress.trim()}\n`;
     }
-    
+
     message += `------------------------------------\n`;
     message += `*Total Bill:* *Rs. ${totalWithDelivery}*\n\n`;
     message += `Please confirm my order. Thank you!`;
@@ -62,10 +63,10 @@ export default function CartDrawer() {
           {/* Backdrop Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
+            animate={{ opacity: 0.65 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black z-50 cursor-pointer"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 cursor-pointer"
           />
 
           {/* Drawer Panel */}
@@ -73,47 +74,53 @@ export default function CartDrawer() {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 bottom-0 w-full sm:max-w-md bg-[#12110F] border-l border-gold/15 shadow-2xl z-50 flex flex-col h-full"
+            transition={{ type: 'spring', damping: 28, stiffness: 240 }}
+            className="fixed right-0 top-0 bottom-0 w-full sm:max-w-md bg-[#12110F] border-l border-gold/20 shadow-[0_0_50px_rgba(0,0,0,0.9)] z-50 flex flex-col h-full"
           >
             {/* Header */}
-            <div className="p-6 border-b border-gold/10 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="relative p-2 rounded-xl bg-gold/10 border border-gold/30 text-gold">
-                  <ShoppingBag className="h-5 w-5" />
-                  {cartItems.length > 0 && (
-                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red text-white text-[9px] font-bold">
-                      {cartItems.reduce((acc, item) => acc + item.quantity, 0)}
-                    </span>
-                  )}
-                </div>
+            <div className="p-6 border-b border-gold/15 flex items-center justify-between bg-[#171512]/90">
+              <div className="flex items-center gap-3">
+                <Squircle size="sm" variant="gold">
+                  <ShoppingBag className="h-4 w-4 text-black" />
+                </Squircle>
                 <div>
-                  <h3 className="font-display text-xl text-white tracking-wider uppercase">Your Basket</h3>
+                  <h3 className="font-display text-xl text-white tracking-wider uppercase">
+                    Your Basket
+                  </h3>
+                  <span className="font-sans text-[9px] uppercase tracking-widest text-gold-dark font-bold block">
+                    {cartItems.length} {cartItems.length === 1 ? 'variety' : 'varieties'} selected
+                  </span>
                 </div>
               </div>
 
-              <button
+              <Squircle
+                size="sm"
+                variant="dark"
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-xl bg-white/5 border border-white/5 text-cream/60 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+                title="Close Basket"
+                className="cursor-pointer border-white/10 hover:border-gold/30"
               >
-                <X className="h-4 w-4" />
-              </button>
+                <X className="h-4 w-4 text-white" />
+              </Squircle>
             </div>
 
             {/* Cart Items Area */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-gold/20 scrollbar-track-transparent">
+            <div className="flex-1 overflow-y-auto p-6 space-y-4">
               {cartItems.length === 0 ? (
-                <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                  <div className="p-4 rounded-full bg-white/5 border border-white/5 text-cream/20 mb-4">
-                    <ShoppingBag className="h-12 w-12" />
-                  </div>
-                  <h4 className="font-display text-lg text-cream/80 tracking-wide">Basket is Empty</h4>
-                  <p className="font-sans text-xs text-cream/40 max-w-[240px] mt-2">
-                    Add delicious burgers, pizzas, wraps or savors to start your order!
+                <div className="h-full flex flex-col items-center justify-center text-center py-16">
+                  <Squircle size="xl" variant="dark" className="border-gold/20 mb-4">
+                    <ShoppingBag className="h-8 w-8 text-gold/40" />
+                  </Squircle>
+                  <h4 className="font-display text-2xl text-white tracking-wide">
+                    Basket is Empty
+                  </h4>
+                  <p className="font-sans text-xs text-white/50 max-w-[240px] mt-2 leading-relaxed">
+                    Add our freshly baked pizzas, crispy zingers, or money-saving deals to get started!
                   </p>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="mt-6 px-5 py-2.5 rounded-xl border border-gold/30 text-gold hover:bg-gold/10 font-sans text-[10px] uppercase tracking-widest transition-all font-bold cursor-pointer"
+                    style={{ borderRadius: '14px' }}
+                    className="luxury-button-gold mt-6 px-5 py-2.5 font-sans text-[10px] uppercase tracking-widest font-bold cursor-pointer"
                   >
                     Browse Menu
                   </button>
@@ -122,18 +129,25 @@ export default function CartDrawer() {
                 cartItems.map((item) => (
                   <div
                     key={item.id}
-                    className="flex gap-4 p-4 rounded-2xl bg-[#1D1B18] border border-gold/10 hover:border-gold/20 transition-all"
+                    style={{ borderRadius: '20px' }}
+                    className="flex gap-4 p-4 bg-[#1A1714] border border-gold/15 hover:border-gold/30 transition-all shadow-md"
                   >
-                    {/* Item Image or Placeholder */}
-                    <div className="h-16 w-16 rounded-xl bg-black/40 border border-gold/10 overflow-hidden flex-shrink-0 flex items-center justify-center">
+                    {/* Item Image or Squircle Placeholder */}
+                    <div
+                      style={{ borderRadius: '16px' }}
+                      className="h-16 w-16 bg-black/50 border border-gold/20 overflow-hidden shrink-0 flex items-center justify-center"
+                    >
                       {item.image ? (
                         <img
                           src={item.image}
                           alt={item.name}
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
                           className="h-full w-full object-cover"
                         />
                       ) : (
-                        <ShoppingBag className="h-5 w-5 text-gold/50" />
+                        <ShoppingBag className="h-6 w-6 text-gold/50" />
                       )}
                     </div>
 
@@ -146,40 +160,43 @@ export default function CartDrawer() {
                           </h4>
                           <button
                             onClick={() => removeFromCart(item.id)}
-                            className="text-cream/30 hover:text-red transition-colors p-0.5 cursor-pointer"
+                            className="text-white/30 hover:text-red transition-colors p-1 cursor-pointer"
+                            title="Remove item"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
                           </button>
                         </div>
                         {item.sizeLabel && (
-                          <span className="inline-block mt-1 px-1.5 py-0.5 rounded bg-gold/10 text-gold font-sans text-[9px] font-bold uppercase tracking-wider">
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-md bg-gold/15 text-gold font-sans text-[9px] font-bold uppercase tracking-wider">
                             {item.sizeLabel}
                           </span>
                         )}
                       </div>
 
-                      <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
-                        {/* Quantity controls */}
-                        <div className="flex items-center gap-1.5 bg-black/30 p-1 rounded-lg border border-white/5">
+                      <div className="flex items-center justify-between mt-3 pt-2 border-t border-white/5">
+                        {/* Apple Squircle Quantity Controls */}
+                        <div className="flex items-center gap-1.5 bg-black/40 p-1 rounded-xl border border-white/5">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="p-1 rounded-md text-cream/60 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
+                            className="p-1 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+                            title="Decrease quantity"
                           >
                             <Minus className="h-3 w-3" />
                           </button>
-                          <span className="font-mono text-xs font-bold text-white px-1.5 min-w-[16px] text-center">
+                          <span className="font-mono text-xs font-bold text-white px-2 min-w-[20px] text-center tabular-nums">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="p-1 rounded-md text-cream/60 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
+                            className="p-1 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+                            title="Increase quantity"
                           >
                             <Plus className="h-3 w-3" />
                           </button>
                         </div>
 
-                        {/* Price Display */}
-                        <span className="font-mono text-sm font-black text-gold">
+                        {/* Price */}
+                        <span className="font-mono text-sm font-black text-gold tabular-nums">
                           Rs. {item.price * item.quantity}
                         </span>
                       </div>
@@ -189,29 +206,34 @@ export default function CartDrawer() {
               )}
             </div>
 
-            {/* Footer summary */}
+            {/* Footer Summary & Checkout */}
             {cartItems.length > 0 && (
-              <div className="p-6 border-t border-gold/10 bg-[#171512] space-y-4">
+              <div className="p-6 border-t border-gold/15 bg-[#171512] space-y-4">
                 {/* Distance & Address Selection */}
-                <div className="p-4 rounded-2xl bg-black/40 border border-gold/10 space-y-3.5">
+                <div
+                  style={{ borderRadius: '20px' }}
+                  className="p-4 bg-black/45 border border-gold/15 space-y-3.5 shadow-inner"
+                >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-gold">
-                      <MapPin className="h-4 w-4" />
+                    <div className="flex items-center gap-2 text-gold">
+                      <Squircle size="xs" variant="gold">
+                        <MapPin className="h-3 w-3 text-black" />
+                      </Squircle>
                       <span className="font-sans text-xs font-bold uppercase tracking-wider">
-                        Delivery Calculator
+                        Delivery Fare Calculator
                       </span>
                     </div>
-                    <span className="font-sans text-[8px] text-cream/40 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded border border-white/5">
-                      Vee Bite Delivery
+                    <span className="font-sans text-[8px] text-white/50 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded border border-white/5">
+                      Vee Bite Express
                     </span>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <label className="font-sans text-[9px] text-cream/60 uppercase tracking-widest font-bold">
+                      <label className="font-sans text-[9px] text-white/70 uppercase tracking-widest font-bold">
                         Delivery Distance (KM)
                       </label>
-                      <span className="font-mono text-xs font-bold text-gold">
+                      <span className="font-mono text-xs font-bold text-gold tabular-nums">
                         {distanceNum} km
                       </span>
                     </div>
@@ -223,9 +245,9 @@ export default function CartDrawer() {
                         step="0.5"
                         value={distance}
                         onChange={(e) => setDistance(parseFloat(e.target.value))}
-                        className="flex-1 accent-gold h-1 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                        className="flex-1 accent-gold h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
                       />
-                      <div className="flex items-center gap-1 bg-black/50 border border-white/10 px-2 py-1 rounded-lg w-[72px] justify-center">
+                      <div className="flex items-center gap-1 bg-black/60 border border-white/10 px-2 py-1 rounded-lg w-[76px] justify-center">
                         <input
                           type="number"
                           min="0.1"
@@ -238,18 +260,18 @@ export default function CartDrawer() {
                           }}
                           className="w-10 bg-transparent text-white font-mono text-[11px] font-bold text-center focus:outline-none"
                         />
-                        <span className="font-sans text-[8px] text-cream/40 font-bold uppercase">KM</span>
+                        <span className="font-sans text-[8px] text-white/40 font-bold uppercase">KM</span>
                       </div>
                     </div>
-                    <p className="font-sans text-[8px] text-cream/40 italic">
-                      Rate: Rs. 60 (up to 2 km) + Rs. 30 per additional km
+                    <p className="font-sans text-[8px] text-white/40 italic">
+                      Base fare Rs. 60 (up to 2 km) + Rs. 30 per additional km
                     </p>
                   </div>
 
                   <div className="h-[1px] w-full bg-white/5" />
 
                   <div className="space-y-1.5">
-                    <label className="block font-sans text-[9px] text-cream/60 uppercase tracking-widest font-bold">
+                    <label className="block font-sans text-[9px] text-white/70 uppercase tracking-widest font-bold">
                       Delivery Address
                     </label>
                     <input
@@ -257,20 +279,20 @@ export default function CartDrawer() {
                       value={deliveryAddress}
                       onChange={(e) => setDeliveryAddress(e.target.value)}
                       placeholder="Street, House/Flat Number, Block, Phase"
-                      className="w-full bg-[#12110F]/90 border border-white/5 rounded-xl px-3 py-2 font-sans text-xs text-white placeholder-cream/20 focus:outline-none focus:border-gold/30 transition-all"
+                      className="w-full bg-[#12110F]/90 border border-white/10 rounded-xl px-3 py-2 font-sans text-xs text-white placeholder-white/20 focus:outline-none focus:border-gold/40 transition-all"
                     />
                   </div>
                 </div>
 
                 {/* Subtotals & Grand Total */}
                 <div className="space-y-2">
-                  <div className="flex justify-between font-sans text-xs text-cream/65">
+                  <div className="flex justify-between font-sans text-xs text-white/70">
                     <span>Subtotal</span>
-                    <span className="font-mono">Rs. {cartTotal}</span>
+                    <span className="font-mono tabular-nums">Rs. {cartTotal}</span>
                   </div>
-                  <div className="flex justify-between font-sans text-xs text-cream/65">
+                  <div className="flex justify-between font-sans text-xs text-white/70">
                     <span>Delivery Fee ({distanceNum} km)</span>
-                    <span className="font-mono text-gold">Rs. {deliveryCharge}</span>
+                    <span className="font-mono text-gold tabular-nums">Rs. {deliveryCharge}</span>
                   </div>
                   <div className="h-[1px] w-full bg-white/5 my-1" />
                   <div className="flex justify-between items-end">
@@ -278,13 +300,13 @@ export default function CartDrawer() {
                       <span className="font-sans text-[9px] text-gold-dark uppercase font-bold tracking-widest block">
                         Total Payable
                       </span>
-                      <span className="font-display text-2xl text-gold font-black">
+                      <span className="font-display text-2xl text-gold font-black tabular-nums">
                         Rs. {totalWithDelivery}
                       </span>
                     </div>
                     <button
                       onClick={clearCart}
-                      className="text-[9px] uppercase font-sans tracking-wider text-cream/40 hover:text-red transition-all cursor-pointer border border-white/5 hover:border-red/20 px-2.5 py-1.5 rounded-lg"
+                      className="text-[9px] uppercase font-sans tracking-wider text-white/40 hover:text-red transition-all cursor-pointer border border-white/5 hover:border-red/20 px-2.5 py-1.5 rounded-lg"
                     >
                       Clear Basket
                     </button>
@@ -293,14 +315,15 @@ export default function CartDrawer() {
 
                 <button
                   onClick={handleWhatsAppCheckout}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gold hover:bg-gold-dark text-[#0A0A0A] font-sans text-xs uppercase tracking-widest py-3.5 transition-all duration-300 font-bold shadow-lg hover:shadow-gold/15 cursor-pointer hover:scale-[1.01]"
+                  style={{ borderRadius: '16px' }}
+                  className="w-full luxury-button-gold flex items-center justify-center gap-2.5 py-3.5 font-sans text-xs uppercase tracking-widest font-bold cursor-pointer"
                 >
                   <MessageSquare className="h-4 w-4" />
                   <span>Send Order via WhatsApp</span>
                 </button>
 
-                <p className="font-sans text-[9px] text-center text-cream/40 leading-relaxed">
-                  Your order details and calculated fare will be sent to our kitchen via WhatsApp for instant confirmation.
+                <p className="font-sans text-[9px] text-center text-white/40 leading-relaxed">
+                  Your order items and estimated distance fare will be dispatched to our kitchen via WhatsApp for swift confirmation.
                 </p>
               </div>
             )}

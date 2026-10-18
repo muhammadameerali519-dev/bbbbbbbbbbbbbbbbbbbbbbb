@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Menu as MenuIcon, X, PhoneCall, ShoppingCart } from 'lucide-react';
+import { Menu as MenuIcon, X, PhoneCall, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useCart } from '../context/CartContext';
+import Squircle from './ui/Squircle';
 
 const logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbYaJA1wzgtlc9OBGWTaqFdKHdbg1mAacC4JsotaplWjEJG-pKqxN_XEw&s=10";
 
@@ -12,21 +13,17 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 15);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
     { name: 'Menu', href: '#menu' },
     { name: 'Deals', href: '#deals' },
-    { name: 'Contact', href: '#contact' },
     { name: 'Our Story', href: '#our-story' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const handleWhatsAppRedirect = () => {
@@ -38,16 +35,21 @@ export default function Header() {
     <>
       <header
         id="main-sticky-header"
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-6 pt-4 pb-2"
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-3 md:px-6 pt-3 pb-2"
       >
-        <div className={`mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 rounded-2xl border transition-all duration-300 ${
-          isScrolled
-            ? 'bg-[#171512]/95 backdrop-blur-md border-gold/40 shadow-[0_8px_32px_rgba(0,0,0,0.8)]'
-            : 'bg-[#171512]/75 backdrop-blur-md border-gold/25'
-        }`}>
-          {/* Logo Brand */}
-          <a href="#hero" className="flex items-center gap-3 group">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/30 bg-[#171512] overflow-hidden transition-colors duration-300 group-hover:border-gold shadow-[0_0_10px_rgba(255,193,7,0.15)]">
+        <div
+          className={`mx-auto flex max-w-7xl items-center justify-between px-4 md:px-6 py-2.5 rounded-2xl md:rounded-3xl border transition-all duration-300 ${
+            isScrolled
+              ? 'luxury-glass border-gold/30 shadow-[0_12px_40px_rgba(0,0,0,0.85)]'
+              : 'bg-[#151311]/85 backdrop-blur-xl border-gold/20 shadow-[0_8px_30px_rgba(0,0,0,0.6)]'
+          }`}
+        >
+          {/* Zone 1: Apple Squircle Brand Lockup */}
+          <a href="#hero" className="flex items-center gap-3 group shrink-0">
+            <div
+              style={{ borderRadius: '24%' }}
+              className="relative flex h-10 w-10 md:h-11 md:md-11 items-center justify-center bg-[#171512] border border-gold/35 border-t-white/30 shadow-[0_4px_16px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.2)] overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:border-gold"
+            >
               <img
                 src={logo}
                 alt="Vee Bite Logo"
@@ -56,102 +58,113 @@ export default function Header() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-2xl tracking-[0.1em] text-white leading-none">
+              <span className="font-display text-xl md:text-2xl tracking-[0.1em] text-white leading-none whitespace-nowrap">
                 VEE <span className="text-gold">BITE</span>
               </span>
-              <span className="font-sans text-[8px] tracking-[0.25em] text-gold-dark uppercase font-semibold">
+              <span className="font-sans text-[8px] md:text-[9px] tracking-[0.25em] text-gold-dark uppercase font-bold whitespace-nowrap mt-0.5">
                 Eat Good, Feel Good
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Zone 2: Navigation Links (Clean single line typography) */}
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="font-sans text-xs tracking-widest text-[#F3E9D2] hover:text-gold uppercase transition-colors duration-300 font-medium relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+                className="font-sans text-xs tracking-widest text-[#F3E9D2]/85 hover:text-gold uppercase transition-colors duration-200 font-semibold relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap shrink-0"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* CTA Order Now Button & Cart */}
-          <div className="flex items-center">
-            {/* Desktop Cart Button */}
+          {/* Zone 3: Actions (Basket & CTA) */}
+          <div className="flex items-center gap-2.5 shrink-0">
+            {/* Desktop Basket Button */}
             <button
               onClick={() => setIsOpenCart(true)}
-              className="hidden md:flex relative items-center gap-2 rounded-full border border-gold/30 bg-gold/5 text-gold hover:bg-gold/15 px-4 py-2.5 transition-all cursor-pointer mr-3"
+              style={{ borderRadius: '18px' }}
+              className="hidden md:flex items-center gap-2.5 px-3.5 py-2 border border-gold/25 bg-[#1C1916]/90 hover:bg-[#25211D] text-gold transition-all duration-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_4px_12px_rgba(0,0,0,0.4)] hover:border-gold/45 cursor-pointer active:scale-95"
             >
-              <ShoppingCart className="h-3.5 w-3.5" />
-              <span className="font-sans text-xs uppercase tracking-widest font-semibold">Basket</span>
+              <Squircle size="xs" variant="dark" className="border-gold/30">
+                <ShoppingBag className="h-3.5 w-3.5 text-gold" />
+              </Squircle>
+              <span className="font-sans text-[11px] uppercase tracking-wider font-bold">Basket</span>
               {cartCount > 0 && (
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red text-white text-[10px] font-black">
+                <span className="flex h-5 min-w-[20px] px-1 items-center justify-center rounded-full bg-gradient-to-b from-red-500 to-red-700 text-white text-[10px] font-black shadow-sm">
                   {cartCount}
                 </span>
               )}
             </button>
 
-            <div className="hidden md:flex items-center">
-              <button
-                onClick={handleWhatsAppRedirect}
-                className="flex items-center gap-2 rounded-full border border-gold bg-gold/10 hover:bg-gold hover:text-[#0A0A0A] text-gold font-sans text-xs uppercase tracking-widest px-5 py-2.5 transition-all duration-300 font-semibold shadow-[0_0_15px_rgba(255,193,7,0.1)] hover:shadow-[0_0_25px_rgba(255,193,7,0.3)] active:scale-95 cursor-pointer"
+            {/* Desktop Order Now Button */}
+            <button
+              onClick={handleWhatsAppRedirect}
+              style={{ borderRadius: '18px' }}
+              className="hidden md:inline-flex items-center gap-2 luxury-button-gold font-sans text-xs uppercase tracking-widest px-4.5 py-2.5 font-bold cursor-pointer"
+            >
+              <PhoneCall className="h-3.5 w-3.5" />
+              <span>Order Now</span>
+            </button>
+
+            {/* Mobile Basket Squircle Trigger */}
+            <div className="relative md:hidden">
+              <Squircle
+                size="sm"
+                variant="dark"
+                onClick={() => setIsOpenCart(true)}
+                title="View Basket"
+                className="cursor-pointer border-gold/30"
               >
-                <PhoneCall className="h-3.5 w-3.5" />
-                <span>Order Now</span>
-              </button>
+                <ShoppingBag className="h-4 w-4 text-gold" />
+              </Squircle>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 flex h-4 min-w-[16px] px-1 items-center justify-center rounded-full bg-red text-white text-[9px] font-black shadow-md pointer-events-none">
+                  {cartCount}
+                </span>
+              )}
             </div>
 
-            {/* Mobile Cart Trigger */}
-            <button
-              onClick={() => setIsOpenCart(true)}
-              className="relative p-2.5 rounded-lg border border-gold/30 bg-gold/5 text-gold hover:bg-gold/15 transition-all cursor-pointer mr-2 md:hidden flex items-center justify-center h-10 w-10"
-            >
-              <ShoppingCart className="h-4.5 w-4.5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red text-white text-[9px] font-black">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-
-            {/* Mobile Hamburger */}
-            <button
+            {/* Mobile Hamburger Squircle */}
+            <Squircle
+              size="sm"
+              variant="dark"
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center text-gold md:hidden h-10 w-10 border border-gold/20 rounded-lg bg-gold/5 cursor-pointer"
-              aria-label="Toggle Menu"
+              title="Toggle Menu"
+              className="md:hidden cursor-pointer border-gold/30"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
-            </button>
+              {isOpen ? <X className="h-4 w-4 text-gold" /> : <MenuIcon className="h-4 w-4 text-gold" />}
+            </Squircle>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer menu */}
+      {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             id="mobile-navigation-drawer"
-            className="fixed inset-0 z-30 flex flex-col bg-[#0A0A0Ae0] backdrop-blur-xl pt-24 px-6 md:hidden"
-            initial={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-40 flex flex-col bg-[#0A0A0A]/95 backdrop-blur-2xl pt-24 px-6 md:hidden"
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex flex-col gap-6 mt-8">
+            <div className="flex flex-col gap-4 mt-4">
               {navLinks.map((link, idx) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="font-display text-4xl text-[#F3E9D2] hover:text-gold tracking-widest uppercase transition-colors duration-300"
-                  initial={{ opacity: 0, x: -30 }}
+                  className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 text-white hover:text-gold hover:border-gold/30 transition-all font-display text-2xl tracking-widest uppercase"
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.1 }}
+                  transition={{ delay: idx * 0.05 }}
                 >
-                  {link.name}
+                  <span>{link.name}</span>
+                  <span className="text-gold text-lg">→</span>
                 </motion.a>
               ))}
 
@@ -160,17 +173,17 @@ export default function Header() {
                   setIsOpen(false);
                   handleWhatsAppRedirect();
                 }}
-                className="flex items-center justify-center gap-3 rounded-full bg-gold hover:bg-gold-dark text-[#0A0A0A] font-sans text-sm uppercase tracking-widest py-4 mt-8 transition-all font-bold shadow-[0_0_20px_rgba(255,193,7,0.2)]"
-                initial={{ opacity: 0, y: 20 }}
+                className="flex items-center justify-center gap-2.5 luxury-button-gold rounded-2xl py-4 mt-4 font-sans text-xs uppercase tracking-widest font-bold shadow-lg"
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.25 }}
               >
                 <PhoneCall className="h-4 w-4" />
                 <span>Call & Order Now</span>
               </motion.button>
             </div>
 
-            <div className="mt-auto mb-10 text-center text-[10px] font-mono tracking-widest text-gold-dark/60">
+            <div className="mt-auto mb-8 text-center text-[10px] font-mono tracking-widest text-gold-dark/70">
               VEE BITE • GUJRANWALA • 0307 655 3100
             </div>
           </motion.div>

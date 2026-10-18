@@ -2,9 +2,9 @@ import { useState } from 'react';
 import Loader from './components/Loader';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import OurStory from './components/OurStory';
 import Menu from './components/Menu';
 import Deals from './components/Deals';
+import OurStory from './components/OurStory';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -22,33 +22,33 @@ export default function App() {
       ) : (
         <motion.div
           id="veebite-app-root"
-          className="relative min-h-screen bg-[#0A0A0A] text-[#F3E9D2] overflow-x-hidden selection:bg-gold selection:text-black font-sans"
+          className="relative min-h-screen bg-[#080808] text-[#F3E9D2] overflow-x-hidden selection:bg-gold selection:text-black font-sans"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Sticky Header Nav */}
           <Header />
 
-          {/* Hero segment */}
+          {/* Hero Section */}
           <Hero />
 
-          {/* Menu segment */}
+          {/* Menu Section */}
           <Menu />
 
-          {/* Deals segment */}
+          {/* Deals Section */}
           <Deals />
 
-          {/* Contact segment */}
-          <Contact />
-
-          {/* Our Story section */}
+          {/* Our Story Section */}
           <OurStory />
 
-          {/* Footer segment */}
+          {/* Contact & Location Section */}
+          <Contact />
+
+          {/* Footer */}
           <Footer />
 
-          {/* Floating UI Elements */}
+          {/* Floating Luxury Elements */}
           <WhatsAppButton />
           <CartDrawer />
         </motion.div>
